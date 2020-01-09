@@ -1,19 +1,19 @@
 pipeline {
   agent any
   stages {
-    stage('build') {
+    stage('Fluffy build') {
       steps {
-        echo 'This is a build step.'
+        sh './jenkins/build.sh'
       }
     }
-    stage('test') {
+    stage('Fluffy test') {
       steps {
-        echo 'This is a testing stage.'
+        sh './jenkins/test-all.sh'
       }
     }
-    stage('deploy') {
+    stage('Fluffy deploy') {
       steps {
-        echo 'This is a deploy stage.'
+        sh ' ./jenkins/deploy.sh staging'
       }
     }
   }
